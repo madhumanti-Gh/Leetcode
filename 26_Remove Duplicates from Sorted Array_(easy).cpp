@@ -15,7 +15,23 @@ public:
             }
             it1++;
         }
-        cout<<nums.size()<<"\n";
         return nums.size();
+    }
+};
+
+// Faster
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        if( nums.size() == 0 )return 0;
+        int i = 1, j = 0, n = nums.size();
+        while( i < n ){
+            if( nums[j] != nums[i] ){
+                j++;
+                nums[j] = nums[i];
+            }
+            ++i;
+        }
+        return j+1;
     }
 };
