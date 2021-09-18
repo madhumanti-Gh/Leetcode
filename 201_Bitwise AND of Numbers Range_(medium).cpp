@@ -31,3 +31,19 @@ public:
         }
     }
 };
+
+
+// Another soln
+class Solution {
+public:
+    int rangeBitwiseAnd( int left, int right) {
+        int AND = 0;
+        while( left != right ){
+            AND++;
+            left >>= 1;
+            right >>= 1;
+        }
+        AND = left<<=AND;
+        return AND;
+    }
+};
