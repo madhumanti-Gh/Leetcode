@@ -40,3 +40,25 @@ public:
         return 0;
     }
 };
+
+// Moore's voting algorithm
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int Mele = nums[0], n = nums.size(), count = 0, i = 0;
+        while( i < n ){
+            if( Mele == nums[i] ){
+                count++;
+            }
+            else{
+                count--;
+            }
+            if( count == 0 ){
+                Mele = nums[i];
+                i--;
+            }
+            i++;
+        }
+        return Mele;
+    }
+};
