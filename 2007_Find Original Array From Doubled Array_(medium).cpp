@@ -1,3 +1,25 @@
+// O(n) Time complexity, O(n) Space complexity, Using queue
+class Solution {
+public:
+    vector<int> findOriginalArray(vector<int>& changed) {
+        int n = changed.size(), i;
+        if( n%2 == 1 )return {};
+        sort( changed.begin(), changed.end() );
+        vector<int> ans;
+        queue<int> q;
+        for( i = 0; i < n; i++ ){
+            if( !q.empty() && q.front() == changed[i] )q.pop();
+            else{
+                q.push( 2* changed[i] );
+                ans.push_back( changed[i] );
+            }
+        }
+        if( q.empty() )return ans;
+        return {};
+    }
+};
+
+// Another approach, Using map
 class Solution {
 public:
     vector<int> findOriginalArray(vector<int>& changed) {
